@@ -41,10 +41,6 @@ class ExtendedRitualRecipe(
     outer, ritualFunction, cost, runningTime
 ) {
 
-    override fun getId(): Identifier {
-        return id
-    }
-
     override fun getSerializer(): RecipeSerializer<*> {
         return RitualmentRecipes.EXTENDED_RITUAL_RECIPE_SERIALIZER
     }
@@ -54,10 +50,10 @@ class ExtendedRitualRecipe(
     }
 
     override fun matches(inventory: Inventory, world: World?): Boolean {
-        return matches(inventory, inputs)
+        return recipeMatches(inventory, inputs)
     }
 
-    fun matches(inv: Inventory, input: DefaultedList<Ingredient>): Boolean {
+    private fun recipeMatches(inv: Inventory, input: DefaultedList<Ingredient>): Boolean {
         val checklist: MutableList<ItemStack> = ArrayList()
         for (i in 0 until inv.size()) {
             val stack = inv.getStack(i)
@@ -90,7 +86,7 @@ class ExtendedRitualRecipe(
 
     class Serializer : RecipeSerializer<ExtendedRitualRecipe> {
         override fun read(id: Identifier?, json: JsonObject?): ExtendedRitualRecipe {
-            val ritual = BWRegistries.RITUAL_FUNCTION.get(Identifier(JsonHelper.getString(json, "ritual_function")))
+            val ritual = ExtendedRitualFunction(null, null)//BWRegistries.RITUAL_FUNCTION.get(Identifier(JsonHelper.getString(json, "ritual_function")))
 
             //Inputs
             var inputs = DefaultedList.of<Ingredient?>()
@@ -108,7 +104,7 @@ class ExtendedRitualRecipe(
 
             //Sacrifices
             var sacrifices: List<EntityType<*>> = listOf<EntityType<*>>()
-            if (JsonHelper.hasArray(json, "summons")) {
+            if (JsonHelper.hasArray(json, "sacrifices")) {
                 val sacrificeArray = JsonHelper.getArray(json, "sacrifices")
                 sacrifices = deserializeEntityTypes(sacrificeArray)
             }

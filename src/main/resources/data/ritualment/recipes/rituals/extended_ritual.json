@@ -1,0 +1,43 @@
+{
+  "type": "ritualment:extended_ritual",
+  "ingredients": [
+    {
+      "item": "bewitchment:cleansing_balm"
+    },
+    {
+      "item": "bewitchment:taglock"
+    },
+    {
+      "item": "golden_apple"
+    }
+  ],
+  "inner": "normal",
+  "outer": "fiery",
+  "ritual_function": "ritualment:extended_ritual",
+  "cost": 300,
+
+  "outputs": [
+    {
+      "item" : "minecraft:stick"
+    }
+  ],
+  "sacrifices": [
+    {
+      "entity": "minecraft:sheep"
+    },
+    {
+      "entity": "minecraft:sheep"
+    }
+  ],
+  "summons": [
+    {
+      "entity": "minecraft:sheep"
+    }
+  ],
+  "commands": [
+    {
+      "command": "setblock ~ ~4 ~ minecraft:grass_block",
+      "type": "start"
+    }
+  ]
+}

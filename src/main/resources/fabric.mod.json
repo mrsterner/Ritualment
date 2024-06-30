@@ -21,6 +21,7 @@
 	"mixins": [
 		"ritualment.mixins.json"
 	],
+	"accessWidener": "ritualment.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.20.1",

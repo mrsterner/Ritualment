@@ -13,7 +13,7 @@ class ExtendedRitualFunction(startParticle: ParticleType<*>?,
                              sacrifice: Predicate<LivingEntity>?
 ) : RitualFunction(startParticle, sacrifice) {
 
-    fun end(instance: RitualFunction, world: World, glyphPos: BlockPos, effectivePos: BlockPos, catFamiliar: Boolean) {
+    fun end(instance: RitualFunction, world: World, glyphPos: BlockPos) {
 
     }
 
