@@ -19,7 +19,7 @@ public class GlyphBlockEntityMixin {
     @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lmoriyashiine/bewitchment/api/registry/RitualFunction;start(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/inventory/Inventory;Z)V"))
     private static void ritualment$tick0(RitualFunction instance, ServerWorld world, BlockPos glyphPos, BlockPos effectivePos, Inventory inventory, boolean catFamiliar, Operation<Void> original){
         if (instance instanceof ExtendedRitualFunction extendedRitualFunction) {
-            extendedRitualFunction.start(instance, world, glyphPos, effectivePos, catFamiliar);
+            extendedRitualFunction.start(instance, world, glyphPos, effectivePos, inventory, catFamiliar);
         } else {
             original.call(instance, world, glyphPos, effectivePos, inventory, catFamiliar);
         }
