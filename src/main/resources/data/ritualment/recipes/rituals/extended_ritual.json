@@ -2,10 +2,7 @@
   "type": "ritualment:extended_ritual",
   "ingredients": [
     {
-      "item": "bewitchment:cleansing_balm"
-    },
-    {
-      "item": "bewitchment:taglock"
+      "item": "stick"
     },
     {
       "item": "golden_apple"

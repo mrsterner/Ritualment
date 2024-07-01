@@ -31,10 +31,10 @@ class ExtendedRitualRecipe(
     private val outputs: List<ItemStack>,
     private val sacrifices: List<EntityType<*>>,
     private val summons: List<EntityType<*>>,
-    ritualFunction: RitualFunction,
+    ritualFunction: ExtendedRitualFunction,
     cost: Int,
     runningTime: Int,
-    private val command: Set<CommandType>
+    val command: Set<CommandType>
 
 ) : RitualRecipe(identifier,
     inputs, inner,
@@ -145,7 +145,7 @@ class ExtendedRitualRecipe(
             val outer = buf.readString()
 
             //Ritual
-            val rite = BWRegistries.RITUAL_FUNCTION.get(buf.readIdentifier())
+            val rite = BWRegistries.RITUAL_FUNCTION.get(buf.readIdentifier()) as ExtendedRitualFunction
 
             //Inputs
             val inputs = DefaultedList.ofSize(buf.readVarInt(), Ingredient.EMPTY)
